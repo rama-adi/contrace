@@ -1,5 +1,7 @@
-import {start as startTurbo} from '@hotwired/turbo';
+import * as Turbo from '@hotwired/turbo';
 
 import('./bootstrap');
 import('./elements/turbo-echo-stream-tag');
-startTurbo();
+window._turbo = Turbo;
+
+_turbo.start();

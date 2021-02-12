@@ -3168,7 +3168,9 @@ Copyright © 2021 Basecamp, LLC
 
             __webpack_require__.e(/*! import() */ "resources_js_bootstrap_js").then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ "./resources/js/bootstrap.js"));
             __webpack_require__.e(/*! import() */ "resources_js_elements_turbo-echo-stream-tag_js").then(__webpack_require__.bind(__webpack_require__, /*! ./elements/turbo-echo-stream-tag */ "./resources/js/elements/turbo-echo-stream-tag.js"));
-            (0, _hotwired_turbo__WEBPACK_IMPORTED_MODULE_0__.start)();
+            window._turbo = _hotwired_turbo__WEBPACK_IMPORTED_MODULE_0__;
+
+            _turbo.start();
 
             /***/
         }),

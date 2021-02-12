@@ -274,6 +274,16 @@
             }
 
             _createClass(TurboEchoStreamSourceElement, [{
+                key: "channel",
+                get: function get() {
+                    return this.getAttribute("channel");
+                }
+            }, {
+                key: "type",
+                get: function get() {
+                    return this.getAttribute("type") || "private";
+                }
+            }, {
                 key: "connectedCallback",
                 value: function () {
                     var _connectedCallback = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -323,16 +333,6 @@
                         data: data
                     });
                     return this.dispatchEvent(event);
-                }
-            }, {
-                key: "channel",
-                get: function get() {
-                    return this.getAttribute("channel");
-                }
-            }, {
-                key: "type",
-                get: function get() {
-                    return this.getAttribute("type") || "private";
                 }
             }]);
 
