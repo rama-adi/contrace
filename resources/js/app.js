@@ -1,3 +1,5 @@
-require('./bootstrap');
+import {start as startTurbo} from '@hotwired/turbo';
 
-require('alpinejs');
+import('./bootstrap');
+import('./elements/turbo-echo-stream-tag');
+startTurbo();
