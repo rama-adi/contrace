@@ -20,7 +20,6 @@ class CreateLocationsTable extends Migration
             $table->string('name', 255);
             $table->string('banner', 255);
             $table->string('icon', 255);
-            $table->string('thumbnail', 255);
             $table->mediumText('body');
             $table->mediumText('agreement');
             $table->timestamps();
