@@ -20,6 +20,8 @@ class CreateVisitorsTable extends Migration
             $table->text('name');
             $table->text('phone_no');
             $table->integer('people_amount');
+            $table->unsignedDouble('pos_lat')->nullable();
+            $table->unsignedDouble('pos_long')->nullable();
             $table->timestamps();
         });
     }

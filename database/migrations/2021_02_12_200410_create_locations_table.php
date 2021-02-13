@@ -22,6 +22,7 @@ class CreateLocationsTable extends Migration
             $table->string('icon', 255);
             $table->mediumText('body');
             $table->mediumText('agreement');
+            $table->integer('max_company')->default(9);
             $table->timestamps();
         });
     }
