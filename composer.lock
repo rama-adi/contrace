@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7285352a799746516644fa4307b3bd4",
+    "content-hash": "2a474e0aeb3f9c06d93cf2da662322cf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5404,6 +5404,70 @@
                 }
             ],
             "time": "2021-01-27T10:15:41+00:00"
+        },
+        {
+            "name": "tanthammar/tall-forms",
+            "version": "7.8.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tanthammar/tall-forms.git",
+                "reference": "8b3d171981cdddd213412b2cb60a4df7f2f67dcd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tanthammar/tall-forms/zipball/8b3d171981cdddd213412b2cb60a4df7f2f67dcd",
+                "reference": "8b3d171981cdddd213412b2cb60a4df7f2f67dcd",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0|^8.24.0",
+                "livewire/livewire": "^2.3.5|dev-master",
+                "php": "^7.4.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tanthammar\\TallForms\\FormServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tanthammar\\TallForms\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tina Hammar",
+                    "email": "post@tinahammar.se",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A dynamic, responsive Laravel Livewire form generator with realtime validation, file uploads, array fields, and more.",
+            "homepage": "https://github.com/tanthammar/tall-forms",
+            "keywords": [
+                "Forms",
+                "alpinejs",
+                "laravel",
+                "livewire",
+                "tailwind"
+            ],
+            "support": {
+                "issues": "https://github.com/tanthammar/tall-forms/issues",
+                "source": "https://github.com/tanthammar/tall-forms/tree/7.8.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tanthammar",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-02-10T13:11:12+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

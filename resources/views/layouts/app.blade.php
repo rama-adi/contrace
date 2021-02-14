@@ -8,41 +8,70 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-    @livewireStyles
+@livewireStyles
 
-    <!-- Scripts -->
+<!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpine-turbo-drive-adapter@1.0.x/dist/alpine-turbo-drive-adapter.min.js"
             defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </head>
 <body class="font-sans antialiased">
-<x-jet-banner/>
+<div class="h-screen flex overflow-hidden bg-gray-50" x-data="{ false }"
+     @keydown.window.escape="sidebarOpen = false">
+@livewire('navigation-menu')
+<!-- Main column -->
 
-<div class="min-h-screen bg-gray-100">
-    @livewire('navigation-menu')
-
-    <!-- Page Heading -->
-    @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
+    <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
+            <button x-description="Sidebar toggle, controls the &apos;sidebarOpen&apos; sidebar state."
+                    @click.stop="sidebarOpen = true"
+                    class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 lg:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="h-6 w-6" x-description="Heroicon name: menu-alt-1" xmlns="http://www.w3.org/2000/svg"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h8m-8 6h16"/>
+                </svg>
+            </button>
+            <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+                <div class="flex-1 flex items-center">
+                {{$header}}
+                <!-- Freely add more content here -->
+                </div>
+                <div class="flex items-center">
+                    <x-app-layouts.profile-dropdown/>
+                </div>
             </div>
-        </header>
-@endif
+        </div>
+        <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
+            <div class="hidden lg:block" style="z-index: 100;">
+                <div
+                    class="border-b bg-white border-gray-200 px-2 py-4 sm:flex sm:items-center sm:justify-between sm:px-2 lg:px-4">
+                    <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+                        <div class="flex-1 flex items-center">
+                            {{$header}}
+                        </div>
+                        <div class="flex items-center">
+                            <x-app-layouts.profile-dropdown/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="maincontainer" class="px-4 sm:px-6 lg:px-8 mt-6" style="z-index: 0">
+                {{ $slot }}
+                @stack('modals')
+            </div>
+        </main>
+    </div>
 
-<!-- Page Content -->
-    <main>
-        {{ $slot }}
-    </main>
 </div>
 
-@stack('modals')
 
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"

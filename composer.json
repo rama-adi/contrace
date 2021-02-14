@@ -19,6 +19,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
+        "tanthammar/tall-forms": "^7.8",
         "tonysm/turbo-laravel": "^0.3.1"
     },
     "require-dev": {

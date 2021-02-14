@@ -129,6 +129,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jaybizzle/crawler-detect" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/betterapp/laravel-db-encrypter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kkomelin/laravel-translatable-string-exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tanthammar/tall-forms" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
