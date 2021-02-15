@@ -24,7 +24,7 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="h-screen flex overflow-hidden bg-gray-50" x-data="{ false }"
+<div class="h-screen flex overflow-hidden bg-gray-50" x-data="{ sidebarOpen: false }"
      @keydown.window.escape="sidebarOpen = false">
 @livewire('navigation-menu')
 <!-- Main column -->

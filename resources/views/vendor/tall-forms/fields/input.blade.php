@@ -1,1 +1,1 @@
-<x-tall-input :field="$field"/>
+<x-tall-input :field="$field" />

@@ -12,7 +12,7 @@
                     <x-tall-spinner/>
                 </div>
                 <div x-show="!isUploading">
-                    <x-tall-svg :path="config('tall-forms.file-upload')" class="tf-file-upload-icon"/>
+                    <x-tall-svg :path="config('tall-forms.file-upload')" class="tf-file-upload-icon" />
                 </div>
             </div>
             {{--intentionally removed input id if multiple forms, with the same field name --}}
@@ -41,12 +41,10 @@
     {{--show livewire file upload default validation error--}}
     @error($field->multiple ? $field->name.'.*': $field->name)
     @foreach($errors->get($field->multiple ? $field->name.'.*': $field->name) as $message)
-        <p wire:key="{{ $loop->index }}"
-           class="tf-error">{{ $field->multiple ? \Tanthammar\TallForms\ErrorMessage::parse($message[0]) : \Tanthammar\TallForms\ErrorMessage::parse($message) }}</p>
+        <p wire:key="{{ $loop->index }}" class="tf-error">{{ $field->multiple ? \Tanthammar\TallForms\ErrorMessage::parse($message[0]) : \Tanthammar\TallForms\ErrorMessage::parse($message) }}</p>
     @endforeach
-    @if(!$showFileUploadError)<p class="tf-error">{{ $uploadFileError }}</p>@endif
+        @if(!$showFileUploadError)<p class="tf-error">{{ $uploadFileError }}</p>@endif
     @enderror
     {{--show components general validation error --}}
-    @if($showFileUploadError && $showFileUploadErrorFor == $field->name)<p
-        class="tf-error">{{ $uploadFileError }}</p>@endif
+    @if($showFileUploadError && $showFileUploadErrorFor == $field->name)<p class="tf-error">{{ $uploadFileError }}</p>@endif
 </div>

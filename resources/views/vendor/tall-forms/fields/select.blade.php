@@ -1,1 +1,1 @@
-<x-tall-select :field="$field"/>
+<x-tall-select :field="$field" />

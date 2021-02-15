@@ -7,18 +7,9 @@ input:invalid, textarea:invalid, select:invalid {
 }
 
 input, select, textarea, button, div, a {
-
-&
-:focus,
-
-&
-:active,
-
-&
-:hover {
-    outline: none;
-}
-
+    &:focus, &:active, &:hover {
+        outline: none;
+    }
 }
 
 /**

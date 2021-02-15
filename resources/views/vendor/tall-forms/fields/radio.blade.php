@@ -3,5 +3,5 @@
         :field="$field"
         :value="$value"
         :label="$label"
-        wire:key="{{ md5($field->key.$value.$label.$loop->index) }}"/>
+        wire:key="{{ md5($field->key.$value.$label.$loop->index) }}" />
 @endforeach

@@ -22,6 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::resource('locations', LocationController::class);
 });

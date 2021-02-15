@@ -1,1 +1,1 @@
-<x-form-banner-field :field="$field"/>
+<x-form-banner-field :field="$field" />

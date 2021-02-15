@@ -1,1 +1,1 @@
-<x-tall-textarea :field="$field"/>
+<x-tall-textarea :field="$field" />

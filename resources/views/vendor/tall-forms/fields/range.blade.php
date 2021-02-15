@@ -1,3 +1,3 @@
 <x-tall-range
     :field="$field"
-    :attr="$field->getAttr('input')"/>
+    :attr="$field->getAttr('input')" />

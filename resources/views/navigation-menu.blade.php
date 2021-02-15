@@ -33,7 +33,7 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                <div x-data="{ false }" @keydown.escape="open = false" @click.away="open = false"
+                <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false"
                      class="px-3 mt-6 relative inline-block text-left">
                     <div x-description="Dropdown menu toggle, controlling the show/hide state of dropdown menu.">
                         <button @click="open = !open" type="button"
@@ -119,7 +119,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                <div x-data="{ false }" @keydown.escape="open = false" @click.away="open = false"
+                <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false"
                      class="px-3 mt-6 relative inline-block text-left">
                     <div x-description="Dropdown menu toggle, controlling the show/hide state of dropdown menu.">
                         <button @click="open = !open" type="button"

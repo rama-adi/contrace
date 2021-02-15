@@ -5,7 +5,7 @@
                 <span class="mx-1">@svg($field->icon, 'h-6 w-6')</span>
             @endif
             @if($field->tallIcon)
-                <span class="mx-1"><x-tall-svg :path="$field->tallIcon" class="h-6 w-6"/></span>
+                <span class="mx-1"><x-tall-svg :path="$field->tallIcon" class="h-6 w-6" /></span>
             @endif
             @if($field->htmlIcon)
                 <span class="mx-1">{!! $field->htmlIcon !!}</span>
@@ -23,8 +23,7 @@
             {{ $attributes->merge(['class' => $errors->has($field->key) ? $error() : $class() ]) }}
         />
         @error($field->key)
-        <x-tall-error-icon
-            :right="in_array($field->input_type, ['date', 'datetime-local', 'time']) ? 'right-6' : 'right-0'"/>
+            <x-tall-error-icon :right="in_array($field->input_type, ['date', 'datetime-local', 'time']) ? 'right-6' : 'right-0'"/>
         @enderror
     </div>
     @if($field->suffix || $field->sfxHasIcon)
@@ -33,7 +32,7 @@
                 <span class="mx-1">@svg($field->sfxIcon, 'h-6 w-6')</span>
             @endif
             @if($field->sfxTallIcon)
-                <span class="mx-1"><x-tall-svg :path="$field->sfxTallIcon" class="h-6 w-6"/></span>
+                <span class="mx-1"><x-tall-svg :path="$field->sfxTallIcon" class="h-6 w-6" /></span>
             @endif
             @if($field->sfxHtmlIcon)
                 <span class="mx-1">{!! $field->sfxHtmlIcon !!}</span>

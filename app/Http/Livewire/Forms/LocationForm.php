@@ -44,23 +44,6 @@ class LocationForm extends Component
         $this->model->update(array_merge($validated_data, $this->doImageReplacement($this->form_data)));
     }
 
-    protected function doImageReplacement($form): array
-    {
-        $arr = [];
-        if (filled($form['banner']) && $form['banner'] !== $this->model->banner) {
-            $arr['banner'] = $this->save_to_storage($form['banner'], 'image/banners', 1000, 400);
-            $this->delete_from_storage($this->model->banner);
-        }
-
-        if (filled($form['icon']) && $form['icon'] !== $this->model->icon) {
-            $arr['icon'] = $this->save_to_storage($form['icon'], 'image/icons', 400, 400);
-            $this->delete_from_storage($this->model->icon);
-        }
-
-        return filled($arr) ? $arr : [];
-
-    }
-
     public function fields()
     {
         return [
@@ -101,6 +84,23 @@ class LocationForm extends Component
                 ->default(view('standalone.agreement-template')->render())
                 ->help('perjanjian yang harus disetujui sebelum memasuki outlet')
         ];
+    }
+
+    protected function doImageReplacement($form): array
+    {
+        $arr = [];
+        if (filled($form['banner']) && $form['banner'] !== $this->model->banner) {
+            $arr['banner'] = $this->save_to_storage($form['banner'], 'image/banners', 1000, 400);
+            $this->delete_from_storage($this->model->banner);
+        }
+
+        if (filled($form['icon']) && $form['icon'] !== $this->model->icon) {
+            $arr['icon'] = $this->save_to_storage($form['icon'], 'image/icons', 400, 400);
+            $this->delete_from_storage($this->model->icon);
+        }
+
+        return filled($arr) ? $arr : [];
+
     }
 
 }

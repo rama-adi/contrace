@@ -4,5 +4,5 @@
             Lokasi baru
         </h2>
     </x-slot>
-    <livewire:forms.location-form :location="$location"/>
+    <livewire:forms.location-form :location="$location" />
 </x-app-layout>

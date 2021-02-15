@@ -2,9 +2,9 @@
 
 namespace App\View\Components;
 
-use App\Support\Fields\BannerField as Field;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Support\Fields\BannerField as Field;
 use Tanthammar\TallForms\Traits\Helpers;
 
 class formBannerField extends Component
@@ -42,7 +42,7 @@ class formBannerField extends Component
 
     public function error()//example class from a default input field
     {
-        return Helpers::unique_words($this->class() . " border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red");
+        return Helpers::unique_words($this->class()." border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red");
     }
 
     /**

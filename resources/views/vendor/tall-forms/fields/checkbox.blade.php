@@ -1,1 +1,1 @@
-<x-tall-checkbox :field="$field"/>
+<x-tall-checkbox :field="$field" />

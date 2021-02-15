@@ -1,5 +1,4 @@
 <?php
-
 use Tanthammar\TallForms\Components;
 
 return [
@@ -74,6 +73,8 @@ return [
         //default field wire:model attribute
         'wire' => 'wire:model.lazy',
     ],
+
+
 
 
     //form buttons translations applied as trans(...) or @lang(...)
