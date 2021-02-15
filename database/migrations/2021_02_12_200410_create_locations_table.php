@@ -16,7 +16,6 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('team_id')->references('id')->on('teams')->cascadeOnDelete();
-            $table->string('slug', 255);
             $table->string('name', 255);
             $table->string('banner', 255);
             $table->string('icon', 255);

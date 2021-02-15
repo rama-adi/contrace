@@ -123,9 +123,10 @@
       <path value="$PROJECT_DIR$/vendor/betterapp/laravel-db-encrypter" />
       <path value="$PROJECT_DIR$/vendor/kkomelin/laravel-translatable-string-exporter" />
       <path value="$PROJECT_DIR$/vendor/tanthammar/tall-forms" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">

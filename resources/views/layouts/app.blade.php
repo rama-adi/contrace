@@ -20,6 +20,8 @@
     <script src="https://cdn.jsdelivr.net/npm/alpine-turbo-drive-adapter@1.0.x/dist/alpine-turbo-drive-adapter.min.js"
             defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    @stack('styles')
+
 </head>
 <body class="font-sans antialiased">
 <div class="h-screen flex overflow-hidden bg-gray-50" x-data="{ false }"
@@ -64,7 +66,7 @@
                 </div>
             </div>
             <div id="maincontainer" class="px-4 sm:px-6 lg:px-8 mt-6" style="z-index: 0">
-                {{ $slot }}
+                {{ $slot ?? null }}
                 @stack('modals')
             </div>
         </main>
@@ -76,5 +78,6 @@
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
+@stack('scripts')
 </body>
 </html>
