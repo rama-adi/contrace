@@ -3,7 +3,7 @@
 <li class="tf-file-upload-li" wire:key="{{ md5($field->multiple ? $field->name.'.'.$loop->index : $field->name) }}">
     <div>
         {{--Temporary urls are only available for file type image--}}
-        @if( Str::startsWith($file->getMimeType(), 'image') )
+        @if( \Str::startsWith($file->getMimeType(), 'image') )
             <div class="tf-file-upload-thumb-wrapper">
                 <img class="tf-file-upload-thumb-img" src="{{ $file->temporaryUrl() }}" alt="{{ $file->getClientOriginalName() }}"/>
             </div>

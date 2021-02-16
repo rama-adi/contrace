@@ -1,7 +1,7 @@
 <div x-data="{
-    false,
+    optionsVisible: false,
     field: @entangle($field->key),
-    null,
+    selected: null,
     searchInput: @entangle($field->searchKey)}
 ">
     <x-tall-search

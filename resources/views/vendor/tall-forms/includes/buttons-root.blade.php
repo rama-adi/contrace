@@ -1,7 +1,7 @@
 <div class="tf-buttons-wrapper">
-    @if($showDelete && optional($model)->exists)
-        <x-tall-button size="sm" wire:click.prevent="delete" :text="trans(config('tall-forms.delete'))" color="danger"/>
-    @endif
+{{--    @if($showDelete && optional($model)->exists)--}}
+{{--        <x-tall-button size="sm" wire:click.prevent="delete" :text="trans(config('tall-forms.delete'))" color="danger"/>--}}
+{{--    @endif--}}
     @if($showReset)
         <x-tall-button size="sm" type="reset" wire:click.prevent="resetFormData" :text="trans(config('tall-forms.reset'))" color="warning"/>
     @endif
@@ -9,7 +9,7 @@
         <x-tall-button size="sm" wire:click.prevent="saveAndGoBack" color="secondary">{{ $saveBackBtnTxt ?? trans(config('tall-forms.save-go-back')) }}</x-tall-button>
     @endif
     @if($showSave)
-        <span x-data="{ false }"
+        <span x-data="{ open: false }"
               x-init="@this.on('notify-saved', () => { if (open === false) setTimeout(() => { open = false }, 2500); open = true;})"
               x-show.transition.out.duration.1000ms="open" style="display: none;"
               class="text-gray-500">{{ trans(config('tall-forms.saved')) }}</span>

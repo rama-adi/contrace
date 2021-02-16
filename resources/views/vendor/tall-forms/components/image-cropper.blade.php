@@ -25,7 +25,7 @@
                 <p class="tf-cropper-file-info">
                     {{ $field->fileInfo }}
                 </p>
-                <button type="button" x-on:click="void(0)" class="tf-cropper-upload">
+                <button type="button" x-on:click="javascript:void(0)" class="tf-cropper-upload">
                     {{ $field->uploadButton }}
                 </button>
             </div>
@@ -53,7 +53,7 @@
                     <button type="button" class="tf-cropper-edit" x-on:click.prevent="edit()"><x-tall-svg :path="config('tall-forms.edit-icon')" class="h-6 w-6" /></button>
                 </div>
             </div>
-            <div><img alt x-ref="result" class="display-block"></div>
+            <div><img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($imageUrl) }}" alt x-ref="result" class="display-block"></div>
         </div>
 
     </div>
@@ -75,8 +75,8 @@
         function imageData{{ md5($field->name) }}() {
             return {
                 showCroppie: false,
-                hasImage: false,
-                originalSrc: "",
+                hasImage: @json(filled($imageUrl)),
+                originalSrc: "{{ \Illuminate\Support\Facades\Storage::disk('public')->url($imageUrl) }}",
                 croppie: {},
                 updatePreview() {
                     var reader,

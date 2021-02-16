@@ -1,7 +1,7 @@
 <div class="w-full my-1">
     @if(blank($fieldValue) || $errors->has($field->multiple ? $field->name.'.*' : $field->name))
         {{--only show the file input if the field is empty or there are validation errors, to force the user to upload new files or delete existing. --}}
-        <div x-data="{ false }"
+        <div x-data="{ isUploading: false }"
              x-on:livewire-upload-start="isUploading = true; $wire.clearFileUploadError('{{ $field->multiple ? $field->name.'.*': $field->name }}');"
              x-on:livewire-upload-finish="isUploading = false"
              x-on:livewire-upload-error="isUploading = false"
@@ -33,7 +33,7 @@
                     @if(filled($file)) @include('tall-forms::includes.file-loop') @endif
                 @endforeach
             @else
-                @php $file = $fieldValue @endphp
+                @php $file = $fieldValue; @endphp
                 @if(filled($file)) @include('tall-forms::includes.file-loop') @endif
             @endif
         </ul>
