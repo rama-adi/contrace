@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Forms;
 
 use App\Models\Location;
 use App\Support\Traits\TfCropperUpload;
+use App\Support\Traits\TurboRedirect;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Tanthammar\TallForms\ImageCropper;
@@ -13,7 +14,7 @@ use Tanthammar\TallForms\Trix;
 
 class LocationForm extends Component
 {
-    use TallForm, TfCropperUpload;
+    use TurboRedirect, TallForm, TfCropperUpload;
 
     public function mount(?Location $location)
     {
@@ -36,12 +37,15 @@ class LocationForm extends Component
             'banner' => $this->save_to_storage($this->form_data['banner'], 'image/banners', 1000, 400),
             'icon' => $this->save_to_storage($this->form_data['icon'], 'image/icons', 400, 400)
         ]));
+
+        $this->turboRedirect(route('dashboard'), 'Berhasil membuat lokasi baru!');
     }
 
     // OPTIONAL method used for the "Save and stay" button, this method already exists in the TallForm trait
     public function onUpdateModel($validated_data)
     {
         $this->model->update(array_merge($validated_data, $this->doImageReplacement($this->form_data)));
+        $this->turboRedirect(route('dashboard'), 'Berhasil mengubah info lokasi ini!');
     }
 
     public function fields()
@@ -81,6 +85,7 @@ class LocationForm extends Component
 
             Trix::make('Perjanjian pengunjung', 'agreement')
                 ->rules('required')
+                ->includeExternalScripts()
                 ->default(view('standalone.agreement-template')->render())
                 ->help('perjanjian yang harus disetujui sebelum memasuki outlet')
         ];

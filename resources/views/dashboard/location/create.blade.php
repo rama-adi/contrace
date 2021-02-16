@@ -5,5 +5,4 @@
         </h2>
     </x-slot>
     <livewire:forms.location-form />
-    {{Storage::disk('public')->url('')}}
 </x-app-layout>

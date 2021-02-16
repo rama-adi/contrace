@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
@@ -41,4 +42,20 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function getVisitor(Carbon $time)
+    {
+        return Visitor::select(['team_id', 'created_at', 'people_amount'])
+            ->where('team_id', $this->id)
+            ->where('created_at', '>=', $time->toDateString())
+            ->get()
+            ->reduce(function ($carry, $item) {
+                return $carry + $item->people_amount;
+            }) ?? 0;
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }

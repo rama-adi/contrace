@@ -65,7 +65,26 @@
                     </div>
                 </div>
             </div>
-            <div id="maincontainer" class="px-4 sm:px-6 lg:px-8 mt-6" style="z-index: 0">
+            <div id="maincontainer" class="py-4 sm:px-6 lg:px-8 mt-6" style="z-index: 0">
+                @if (session('successState'))
+                    <div class="mb-4">
+                        <div class="alert alert-success">
+                            <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <!-- Heroicon name: solid/exclamation -->
+                                        <x-heroicon-o-check-circle class="h-5 w-5 text-green-400"/>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm text-green-700">
+                                            {{ session('successState') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 {{ $slot ?? null }}
                 @stack('modals')
             </div>

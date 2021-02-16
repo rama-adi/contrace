@@ -131,6 +131,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kkomelin/laravel-translatable-string-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tanthammar/tall-forms" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/intervention/image" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jantinnerezo/livewire-alert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/blade-ui-kit/blade-heroicons" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/blade-ui-kit/blade-icons" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

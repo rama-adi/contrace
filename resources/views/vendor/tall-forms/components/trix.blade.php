@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css" media="print" onload="this.media='all'">
 @endtfonce
 @tfonce('scripts:trix')
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js" data-turbo-eval="false"></script>
 @endtfonce
 @tfonce('styles:trix-no-upload')
 <style>

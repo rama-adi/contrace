@@ -4564,7 +4564,7 @@ var encrypted_channel_EncryptedChannel = (function (_super) {
                     return;
                 }
                 _this.emit(event, _this.getDataToEmit(bytes));
-
+                return;
             });
             return;
         }
