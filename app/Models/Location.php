@@ -24,9 +24,6 @@ class Location extends Model
 
     public function countTotalVisitors(): int
     {
-        return $this->visitors()->select(['people_amount'])->get()->reduce(function ($carry, $item) {
-            return $carry + $item->people_amount;
-        }) ?? 0;
-
+        return $this->visitors()->select(['people_amount'])->sum('people_amount');
     }
 }

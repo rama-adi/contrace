@@ -46,11 +46,21 @@ class LocationController extends Controller
      * Display the specified resource.
      *
      * @param Location $location
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function show(Location $location)
     {
-        //
+        return view('dashboard.location.show')->with('location', $location);
+    }
+
+    /**
+     * Display the visitation tab
+     *
+     * @param Location $location
+     */
+    public function visitation(Location $location)
+    {
+        return view('dashboard.location.visitation')->with('location', $location);
     }
 
     /**
