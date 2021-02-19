@@ -1,10 +1,13 @@
 {
-    "Update your account's profile information and email address.": "x",
     "The provided password does not match your current password.": "Password yang anda beri tidak cocok dengan password anda.",
     "We were unable to find a registered user with this email address.": "Kami tidak bisa menemukan pengguna yang ter registrasi dengan e-mail ini.",
     "This user already belongs to the team.": "Pengguna ini sudah bergabung di dalam tim.",
     "This user has already been invited to the team.": "Pengguna ini sudah di undang ke tim.",
     "You may not leave a team that you created.": "Anda tidak bisa meninggalkan tim yang anda buat.",
+    "Administrator": "Administrator",
+    "Administrator users can perform any action.": "Administrator users can perform any action.",
+    "Editor": "Editor",
+    "Editor users have the ability to read, create, and update.": "Editor users have the ability to read, create, and update.",
     "Create API Token": "Buat API Token",
     "API tokens allow third-party services to authenticate with our application on your behalf.": "API token memberikan pihak ketiga akses atas nama anda.",
     "Token Name": "Nama token",
@@ -56,8 +59,6 @@
     "Team Settings": "Pengaturan tim",
     "Create New Team": "Buat tim baru",
     "Switch Teams": "Ganti tim",
-    "Manage Account": "Atur akun",
-    "Profile": "Profil",
     "Delete Account": "Hapus akun",
     "Permanently delete your account.": "Hapus akun secara permanen.",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Setelah akun anda dihapus, semua data akan hilang. Sebelum menghapus akun anda, mohon download semua data yang ingin anda simpan.",
@@ -70,6 +71,7 @@
     "Logout Other Browser Sessions": "Keluar dari sesi browser lain",
     "Done.": "Selesai.",
     "Please enter your password to confirm you would like to logout of your other browser sessions across all of your devices.": "Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin keluar dari sesi browser lain di semua perangkat Anda.",
+    "Profile": "Profil",
     "Two Factor Authentication": "Autentikasi dua faktor",
     "Add additional security to your account using two factor authentication.": "Tambahkan keamanan ekstra pada akun anda dengan mengaktifkan autentikasi dua faktor.",
     "You have enabled two factor authentication.": "Anda sudah menyalakan autentikasi dua faktor.",
@@ -126,5 +128,10 @@
     "Create Account": "Buat akun",
     "If you already have an account, you may accept this invitation by clicking the button below:": "Jika Anda sudah memiliki akun, Anda dapat menerima undangan ini dengan mengklik tombol di bawah:",
     "Accept Invitation": "Terima undangan",
-    "If you did not expect to receive an invitation to this team, you may discard this email.": "Jika anda tidak mengharapkan email ini, anda bisa mengabaikannya."
+    "If you did not expect to receive an invitation to this team, you may discard this email.": "Jika anda tidak mengharapkan email ini, anda bisa mengabaikannya.",
+    "Showing results of": "Menampilkan hasil",
+    "Of" : "Dari",
+    "There's Nothing to show at the moment": "Tidak ada yang bisa ditampilkan saat ini",
+    "All" : "Semua"
+
 }

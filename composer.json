@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4",
         "betterapp/laravel-db-encrypter": "^1.0",
         "blade-ui-kit/blade-heroicons": "^0.3.1",
         "fideloper/proxy": "^4.4",
@@ -22,6 +22,8 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
+        "mediconesystems/livewire-datatables": "^0.4.3",
+        "stevebauman/purify": "^4.0",
         "tanthammar/tall-forms": "^7.8",
         "tonysm/turbo-laravel": "^0.3.1"
     },
