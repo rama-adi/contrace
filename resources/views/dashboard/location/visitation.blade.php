@@ -10,8 +10,7 @@
 
 @section('location_content')
     <turbo-frame id="show_location">
-{{--        <livewire:ui.visitation.visitation-table :location="$location" />--}}
-        <div class="mb-10">
+        <div class="-mt-8 mb-10">
             <livewire:tables.visitor :location="$location" />
         </div>
     </turbo-frame>

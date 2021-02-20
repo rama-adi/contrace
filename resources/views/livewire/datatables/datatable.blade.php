@@ -145,7 +145,7 @@
                 </div>
             </div>
             @unless($this->hidePagination)
-                <div class="rounded-lg rounded-t-none max-w-screen rounded-lg border-b border-gray-200 bg-white">
+                <div class="mx-4 rounded-lg rounded-t-none max-w-screen rounded-lg border-b border-gray-200 bg-white">
                     <div class="p-2 sm:flex items-center justify-between">
                         {{-- check if there is any data --}}
                         @if($this->results[1])

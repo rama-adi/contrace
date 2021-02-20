@@ -8,3 +8,38 @@
     </x-slot>
     <x-slot name="title">Home</x-slot>
 </x-menu-item>
+
+<x-menu-item :active="Route::is('locations.create')" href="{{route('locations.create')}}">
+    <x-slot name="icon">
+        <x-heroicon-o-document-add/>
+    </x-slot>
+    <x-slot name="title">Lokasi baru</x-slot>
+</x-menu-item>
+
+<x-menu-item :active="Route::is(['locations.index', 'locations.show', 'location.edit'])" href="{{route('locations.index')}}">
+    <x-slot name="icon">
+        <x-heroicon-o-location-marker/>
+    </x-slot>
+    <x-slot name="title">Lokasi</x-slot>
+</x-menu-item>
+
+<x-menu-item :active="Route::is('teams.show')" href="{{route('teams.show', ['team' => Auth::user()->currentTeam->id])}}">
+    <x-slot name="icon">
+        <x-heroicon-o-user-group/>
+    </x-slot>
+    <x-slot name="title">Pengaturan tim</x-slot>
+</x-menu-item>
+
+<x-menu-item :active="Route::is('teams.create')" href="{{route('teams.create')}}">
+    <x-slot name="icon">
+        <x-heroicon-o-view-grid-add/>
+    </x-slot>
+    <x-slot name="title">Tim baru</x-slot>
+</x-menu-item>
+
+<x-menu-item :active="Route::is('profile.show')" href="{{route('profile.show')}}">
+    <x-slot name="icon">
+        <x-heroicon-o-cog/>
+    </x-slot>
+    <x-slot name="title">Pengaturan</x-slot>
+</x-menu-item>

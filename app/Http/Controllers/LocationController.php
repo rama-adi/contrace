@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Team;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -62,6 +63,19 @@ class LocationController extends Controller
     {
         return view('dashboard.location.visitation')->with('location', $location);
     }
+
+    /**
+     * Public fillable form
+     * @param Team $team
+     * @param Location $location
+     * @return Application|Factory|View
+     */
+    public function show_public(Team $team, Location $location)
+    {
+           return view('public.show-location')->with(['team' => $team, 'location' => $location]);
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

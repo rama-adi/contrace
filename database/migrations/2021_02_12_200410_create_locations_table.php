@@ -17,6 +17,7 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->foreignId('team_id')->references('id')->on('teams')->cascadeOnDelete();
             $table->string('name', 255);
+            $table->string('slug', 10);
             $table->string('banner', 255);
             $table->string('icon', 255);
             $table->mediumText('body');

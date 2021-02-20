@@ -38,6 +38,8 @@
                                 <x-heroicon-o-table class="-ml-1 mr-2 h-5 w-5 text-gray-400"/>
                                 <span>Export Excel</span>
                             </a>
+
+                            <livewire:ui.share-location :location="$location" :team="\Illuminate\Support\Facades\Auth::user()->currentTeam"/>
                         </div>
                     </div>
                 </div>

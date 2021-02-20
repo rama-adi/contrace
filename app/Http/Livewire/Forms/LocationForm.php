@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Support\Traits\TfCropperUpload;
 use App\Support\Traits\TurboRedirect;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Tanthammar\TallForms\ImageCropper;
 use Tanthammar\TallForms\Input;
@@ -35,7 +36,8 @@ class LocationForm extends Component
         $this->model = Location::create(array_merge($validated_data, [
             'team_id' => Auth::user()->currentTeam->id,
             'banner' => $this->save_to_storage($this->form_data['banner'], 'image/banners', 1000, 400),
-            'icon' => $this->save_to_storage($this->form_data['icon'], 'image/icons', 400, 400)
+            'icon' => $this->save_to_storage($this->form_data['icon'], 'image/icons', 400, 400),
+            'slug' => Str::random(5)
         ]));
 
         $this->turboRedirect(route('dashboard'), 'Berhasil membuat lokasi baru!');
