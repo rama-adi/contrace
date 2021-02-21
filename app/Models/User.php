@@ -57,4 +57,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function hasPermission(string $permission)
+    {
+        return $this->hasTeamPermission($this->currentTeam, $permission);
+    }
 }

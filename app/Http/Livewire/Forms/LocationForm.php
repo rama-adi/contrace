@@ -3,9 +3,11 @@
 namespace App\Http\Livewire\Forms;
 
 use App\Models\Location;
+use App\Support\Traits\HasLivewireAlert;
 use App\Support\Traits\TfCropperUpload;
 use App\Support\Traits\TurboRedirect;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Tanthammar\TallForms\ImageCropper;
@@ -15,7 +17,7 @@ use Tanthammar\TallForms\Trix;
 
 class LocationForm extends Component
 {
-    use TurboRedirect, TallForm, TfCropperUpload;
+    use TurboRedirect, TallForm, TfCropperUpload, HasLivewireAlert;
 
     public function mount(?Location $location)
     {
@@ -32,22 +34,32 @@ class LocationForm extends Component
     // Mandatory method
     public function onCreateModel($validated_data)
     {
-        // Set the $model property in order to conditionally display fields when the model instance exists, on saveAndStayResponse()
-        $this->model = Location::create(array_merge($validated_data, [
-            'team_id' => Auth::user()->currentTeam->id,
-            'banner' => $this->save_to_storage($this->form_data['banner'], 'image/banners', 1000, 400),
-            'icon' => $this->save_to_storage($this->form_data['icon'], 'image/icons', 400, 400),
-            'slug' => Str::random(5)
-        ]));
+        $check = Gate::check('create', Location::class);
+        if ($check) {
+            // Set the $model property in order to conditionally display fields when the model instance exists, on saveAndStayResponse()
+            $this->model = Location::create(array_merge($validated_data, [
+                'team_id' => Auth::user()->currentTeam->id,
+                'banner' => $this->save_to_storage($this->form_data['banner'], 'image/banners', 1000, 400),
+                'icon' => $this->save_to_storage($this->form_data['icon'], 'image/icons', 400, 400),
+                'slug' => Str::random(5)
+            ]));
 
-        $this->turboRedirect(route('dashboard'), 'Berhasil membuat lokasi baru!');
+            $this->turboRedirect(route('dashboard'), 'Berhasil membuat lokasi baru!');
+        } else {
+            $this->showToast('Tidak diperbolehkan membuat lokasi!');
+        }
     }
 
     // OPTIONAL method used for the "Save and stay" button, this method already exists in the TallForm trait
     public function onUpdateModel($validated_data)
     {
-        $this->model->update(array_merge($validated_data, $this->doImageReplacement($this->form_data)));
-        $this->turboRedirect(route('dashboard'), 'Berhasil mengubah info lokasi ini!');
+        $check = Gate::check('update', $this->model);
+        if ($check) {
+            $this->model->update(array_merge($validated_data, $this->doImageReplacement($this->form_data)));
+            $this->turboRedirect(route('dashboard'), 'Berhasil mengubah info lokasi ini!');
+        } else {
+            $this->showToast('Tidak diperbolehkan mengupdate lokasi!');
+        }
     }
 
     public function fields()

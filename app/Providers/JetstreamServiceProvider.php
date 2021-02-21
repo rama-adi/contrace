@@ -9,6 +9,8 @@ use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\InviteTeamMember;
 use App\Actions\Jetstream\RemoveTeamMember;
 use App\Actions\Jetstream\UpdateTeamName;
+use App\Support\Enums\LocationPermissions;
+use App\Support\Enums\TeamPermissions;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 
@@ -52,16 +54,28 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::defaultApiTokenPermissions(['read']);
 
         Jetstream::role('admin', __('Administrator'), [
-            'create',
-            'read',
-            'update',
-            'delete',
-        ])->description(__('Administrator users can perform any action.'));
+            LocationPermissions::CREATE_LOCATION,
+            LocationPermissions::VIEW_LOCATION,
+            LocationPermissions::UPDATE_LOCATION,
+            LocationPermissions::DELETE_LOCATION,
+            LocationPermissions::EXPORT_LOCATION,
+
+            TeamPermissions::INVITE_USER,
+            TeamPermissions::REMOVE_USER,
+            TeamPermissions::UPDATE_TEAM,
+
+        ])->description('Administrator bisa mengedit lokasi dan mengundang anggota tim');
 
         Jetstream::role('editor', __('Editor'), [
-            'read',
-            'create',
-            'update',
-        ])->description(__('Editor users have the ability to read, create, and update.'));
+            LocationPermissions::CREATE_LOCATION,
+            LocationPermissions::VIEW_LOCATION,
+            LocationPermissions::UPDATE_LOCATION,
+            LocationPermissions::EXPORT_LOCATION,
+        ])->description('Editor bisa mengedit lokasi tapi tidak bisa menghapus');
+
+        Jetstream::role('member', __('Member'), [
+            LocationPermissions::VIEW_LOCATION,
+            LocationPermissions::EXPORT_LOCATION,
+        ])->description('Member bisa melihat dan mengexport lokasi');
     }
 }

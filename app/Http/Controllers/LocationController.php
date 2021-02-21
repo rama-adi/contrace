@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -19,8 +20,11 @@ class LocationController extends Controller
 
     public function export(Location $location)
     {
-        return Excel::download(new VisitorsExport($location->id), "pengunjung {$location->name} ". Carbon::now() .".xlsx");
+        Gate::authorize('export', $location);
+
+        return Excel::download(new VisitorsExport($location->id), "pengunjung {$location->name} " . Carbon::now() . ".xlsx");
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +32,8 @@ class LocationController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Location::class);
+
         return view('dashboard.location.index');
     }
 
@@ -38,6 +44,7 @@ class LocationController extends Controller
      */
     public function create()
     {
+        Gate::authorize('create', Location::class);
         return view('dashboard.location.create');
     }
 
@@ -60,6 +67,7 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
+        Gate::authorize('view', $location);
         return view('dashboard.location.show')->with('location', $location);
     }
 
@@ -70,6 +78,7 @@ class LocationController extends Controller
      */
     public function visitation(Location $location)
     {
+        Gate::authorize('view', $location);
         return view('dashboard.location.visitation')->with('location', $location);
     }
 
@@ -81,9 +90,8 @@ class LocationController extends Controller
      */
     public function show_public(Team $team, Location $location)
     {
-           return view('public.show-location')->with(['team' => $team, 'location' => $location]);
+        return view('public.show-location')->with(['team' => $team, 'location' => $location]);
     }
-
 
 
     /**
@@ -94,6 +102,7 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
+        Gate::authorize('update', $location);
         return view('dashboard.location.edit')->with('location', $location);
     }
 

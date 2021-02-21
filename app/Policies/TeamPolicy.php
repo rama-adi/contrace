@@ -4,7 +4,9 @@ namespace App\Policies;
 
 use App\Models\Team;
 use App\Models\User;
+use App\Support\Enums\TeamPermissions;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class TeamPolicy
 {
@@ -53,7 +55,15 @@ class TeamPolicy
      */
     public function update(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if($user->hasPermission(TeamPermissions::UPDATE_TEAM) && $user->currentTeam->id == $team->id){
+            return Response::allow();
+        }
+
+        if($user->ownsTeam($team)){
+            return Response::allow();
+        }
+
+        Return Response::deny('Anda tidak bisa mengubah tim!');
     }
 
     /**
@@ -65,7 +75,16 @@ class TeamPolicy
      */
     public function addTeamMember(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if($user->hasPermission(TeamPermissions::INVITE_USER) && $user->currentTeam->id == $team->id){
+            return Response::allow();
+        }
+
+        if($user->ownsTeam($team)){
+            return Response::allow();
+        }
+
+        Return Response::deny('Anda tidak bisa mengundang anggota tim!');
+
     }
 
     /**
@@ -89,7 +108,15 @@ class TeamPolicy
      */
     public function removeTeamMember(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if($user->hasPermission(TeamPermissions::REMOVE_USER) && $user->currentTeam->id == $team->id){
+            return Response::allow();
+        }
+
+        if($user->ownsTeam($team)){
+            return Response::allow();
+        }
+
+        Return Response::deny('Anda tidak bisa menghapus anggota tim!');
     }
 
     /**
