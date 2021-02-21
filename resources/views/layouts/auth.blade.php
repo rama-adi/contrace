@@ -7,7 +7,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <script src="{{asset('js/app.js')}}"></script>
     @stack('head')
     @stack('styles')
 </head>
@@ -33,7 +32,5 @@
 </div>
 @stack('scripts')
 @yield('scripts')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </body>
 </html>
