@@ -52,6 +52,7 @@
             </div>
         </div>
         <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
+            <livewire:ui.ig-cta />
             <div class="hidden lg:block" style="z-index: 100;">
                 <div
                     class="border-b bg-white border-gray-200 px-2 py-4 sm:flex sm:items-center sm:justify-between sm:px-2 lg:px-4">

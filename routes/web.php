@@ -27,5 +27,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::resource('locations', LocationController::class);
+    Route::get('locations/{location}/export', [LocationController::class, 'export'])->name('locations.export');
     Route::get('locations/{location}/visitation', [LocationController::class, 'visitation'])->name('locations.visitation');
 });
